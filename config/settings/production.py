@@ -92,7 +92,7 @@ TEMPLATES[-1]["OPTIONS"]["loaders"] = [  # type: ignore[index] # noqa: F405
 
 # EMAIL
 # ------------------------------------------------------------------------------
-https://docs.djangoproject.com/en/dev/ref/settings/#default-from-email
+# https://docs.djangoproject.com/en/dev/ref/settings/#default-from-email
 DEFAULT_FROM_EMAIL = env(
     "DJANGO_DEFAULT_FROM_EMAIL",
     default="Project 3 <leigh.m.data@gmail.com>",
