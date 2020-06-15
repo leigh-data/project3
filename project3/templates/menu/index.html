@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% for pizza in sicilian_pizzas %}
+        <p>{{ pizza }} | {{ pizza.small_price }} | {{ pizza.large_price }}</p>
+    {% endfor %}
+
+    {% for pizza in regular_pizzas %}
+        <p>{{ pizza }} | {{ pizza.small_price }} | {{ pizza.large_price }}</p>
+    {% endfor %}
+{% endblock  %}
