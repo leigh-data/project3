@@ -11,7 +11,7 @@ from .models import (
 
 @admin.register(PizzaMenuItem)
 class PizzaMenuItemAdmin(admin.ModelAdmin):
-    ordering = ("toppings", "pizza_type")
+    ordering = ("pizza_type", "toppings")
     fields = (
         "pizza_type",
         "toppings",
@@ -22,7 +22,21 @@ class PizzaMenuItemAdmin(admin.ModelAdmin):
     )
 
 
+@admin.register(SandwichMenuItem)
+class SandwichMenuItemAdmin(admin.ModelAdmin):
+    ordering = ("id",)
+    fields = (
+        "menu_description",
+        "cart_description",
+        "small_price",
+        "large_price",
+        "extra_cheese",
+        "wit",
+        "mushrooms",
+        "peppers",
+    )
+
+
 admin.site.register(PizzaTopping)
-admin.site.register(SandwichMenuItem)
 admin.site.register(OneSizeMenuItem)
 admin.site.register(PlatterMenuItem)

@@ -24,6 +24,9 @@ class OnseSizeMenuItemManager(models.Manager):
 class PizzaTopping(models.Model):
     name = models.CharField("Name of Topping", max_length=126)
 
+    def __str__(self):
+        return self.name
+
 
 class MenuItem(models.Model):
     menu_description = models.CharField("Menu Description", max_length=126)
@@ -59,7 +62,7 @@ class PizzaMenuItem(MenuItem):
 
 
 class SandwichMenuItem(MenuItem):
-    extra_cheese = models.BooleanField("Extra Cheese")
+    extra_cheese = models.BooleanField("Extra Cheese", default=True)
     wit = models.BooleanField("Wit")
     mushrooms = models.BooleanField("Mushrooms")
     peppers = models.BooleanField("Peppers")

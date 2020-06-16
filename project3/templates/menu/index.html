@@ -48,6 +48,37 @@
     {% else %}
     <p>Log In to Order</p>
     {% endif %}
+  
+  <h3 class="text-center">Steaks and Hoagies</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Small</th>
+                <th>Large</th>
+                <th>Toppings</th>
+            </tr>
+            <tbody>
+                {% for sandwich in sandwiches %}
+                <tr>
+                    <td>{{ sandwich.menu_description }}</td>
+                    <td>
+                      {% if sandwich.small_price %}
+                        ${{ sandwich.small_price }}
+                      {% endif %}
+                    </td>
+                    <td>${{ sandwich.large_price }}</td>
+                    <td>
+                      {% if sandwich.extra_cheese %}Extra Cheese +.50<br/>{% endif %}
+                      {% if sandwich.wit %}Wit +.50<br/>{% endif %}
+                      {% if sandwich.mushrooms %}Mushrooms +.50<br/>{% endif %}
+                      {% if sandwich.peppers %}Peppers +.50<br/>{% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </thead>
+    </table>
 {% endblock  %}
 
 {% block modal %}
