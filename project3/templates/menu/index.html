@@ -1,11 +1,75 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    {% for pizza in sicilian_pizzas %}
-        <p>{{ pizza }} | {{ pizza.small_price }} | {{ pizza.large_price }}</p>
-    {% endfor %}
+    <h3 class="text-center">Regular Pizza</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Small</th>
+                <th>Large</th>
+            </tr>
+            <tbody>
+                {% for pizza in regular_pizzas %}
+                <tr>
+                    <td>{{ pizza }}</td>
+                    <td>${{ pizza.small_price }}</td>
+                    <td>${{ pizza.large_price }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </thead>
+    </table>
 
-    {% for pizza in regular_pizzas %}
-        <p>{{ pizza }} | {{ pizza.small_price }} | {{ pizza.large_price }}</p>
-    {% endfor %}
+    <h3 class="text-center">Sicilian Pizza</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Small</th>
+                <th>Large</th>
+            </tr>
+            <tbody>
+                {% for pizza in sicilian_pizzas %}
+                <tr>
+                    <td>{{ pizza }}</td>
+                    <td>${{ pizza.small_price }}</td>
+                    <td>${{ pizza.large_price }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </thead>
+    </table>
+
+    {% if user.is_authenticated %}
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#pizzaModal">
+        Order Pizza
+    </button>
+    {% else %}
+    <p>Log In to Order</p>
+    {% endif %}
+{% endblock  %}
+
+{% block modal %}
+<div class="modal fade" id="pizzaModal" tabindex="-1" role="dialog" aria-labelledby="pizzaModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Order Pizza</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="">
+        <p>Order Pizza</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Save changes</button>
+        </form>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock  %}
