@@ -12,7 +12,7 @@
             <tbody>
                 {% for pizza in regular_pizzas %}
                 <tr>
-                    <td>{{ pizza }}</td>
+                    <td>{{ pizza.menu_description }}</td>
                     <td>${{ pizza.small_price }}</td>
                     <td>${{ pizza.large_price }}</td>
                 </tr>
@@ -32,7 +32,7 @@
             <tbody>
                 {% for pizza in sicilian_pizzas %}
                 <tr>
-                    <td>{{ pizza }}</td>
+                    <td>{{ pizza.menu_description }}</td>
                     <td>${{ pizza.small_price }}</td>
                     <td>${{ pizza.large_price }}</td>
                 </tr>
