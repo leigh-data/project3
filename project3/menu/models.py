@@ -1,26 +1,6 @@
 from django.db import models
 
 
-class PizzaManager(models.Manager):
-    def get_regular_pizzas(self):
-        return self.filter(pizza_type=PizzaMenuItem.PizzaType.REGULAR).order_by(
-            "toppings"
-        )
-
-    def get_sicilian_pizzas(self):
-        return self.filter(pizza_type=PizzaMenuItem.PizzaType.SICILIAN).order_by(
-            "toppings"
-        )
-
-
-class OnseSizeMenuItemManager(models.Manager):
-    def get_salads(self):
-        return self.filter(entree_type=OneSizeMenuItem.OneSizeType.SALAD)
-
-    def get_pasta(self):
-        return self.filter(entree_type=OneSizeMenuItem.OneSizeType.PASTA)
-
-
 class PizzaTopping(models.Model):
     name = models.CharField("Name of Topping", max_length=126)
 
@@ -41,8 +21,6 @@ class MenuItem(models.Model):
 
 
 class PizzaMenuItem(MenuItem):
-    objects = PizzaManager()
-
     class PizzaType(models.TextChoices):
         REGULAR = ("Regular", "Regular")
         SICILIAN = ("Sicilian", "Sicilian")
@@ -81,8 +59,6 @@ class OneSizeMenuItem(MenuItem):
     class OneSizeType(models.TextChoices):
         PASTA = ("pasta", "Pasta")
         SALAD = ("salad", "Salad")
-
-    objects = OnseSizeMenuItemManager()
 
     entree_type = models.CharField(
         "Entree Type",

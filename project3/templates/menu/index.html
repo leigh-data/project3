@@ -40,6 +40,13 @@
             </tbody>
         </thead>
     </table>
+    <div class="card" style="width: 18rem;">
+      <ul class="list-group list-group-flush">
+        {% for topping in toppings %}
+          <li class="list-group-item">{{ topping.name }}</li>
+        {% endfor %}
+      </ul>
+    </div>
 
     {% if user.is_authenticated %}
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#pizzaModal">
